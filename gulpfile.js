@@ -32,9 +32,6 @@ var autoprefixerConfig = {
 	cascade: true,
 	remove: true
 }
-var livereloadConfig = {
-	port: 4422
-}
 
 gulp.task('html', function(){
 	return gulp.src('src/*.html')
@@ -85,7 +82,7 @@ gulp.task('watch', function(){
 	gulp.watch('src/less/*.less', ['style']);
 	gulp.watch(['src/js/*.js', '!src/js/' + combineJSName, '!src/js/*.min.js'], ['js']);
 	gulp.watch('src/images/*', ['image'])
-	livereload.listen(livereloadConfig);
+	livereload.listen();
 	gulp.watch(['dist/*']).on('change', livereload.changed);
 });
 	
