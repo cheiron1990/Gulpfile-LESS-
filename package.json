@@ -1,7 +1,7 @@
 {
-  "name": "temp",
+  "name": "Gulpfile(LESS)",
   "version": "1.0.0",
-  "description": "none",
+  "description": "Gulpfile for self",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
