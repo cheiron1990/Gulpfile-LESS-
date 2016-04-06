@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://cheiron1990@github.com/cheiron1990/temp.git"
+    "url": "git+https://cheiron1990@github.com/cheiron1990/Gulpfile-LESS-.git"
   },
   "author": "Cheiron",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cheiron1990/temp/issues"
+    "url": "https://github.com/cheiron1990/Gulpfile-LESS-/issues"
   },
-  "homepage": "https://github.com/cheiron1990/temp#readme",
+  "homepage": "https://github.com/cheiron1990/Gulpfile-LESS-#readme",
   "dependencies": {
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
