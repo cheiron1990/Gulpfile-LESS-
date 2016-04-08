@@ -15,7 +15,7 @@ var gulp = require('gulp'),
 	notify = require('gulp-notify');
 
 // Configs
-var combineCSSName = 'all.min.css';
+var combineCSSName = 'all.css';
 var combineJSName = 'all.js';
 var htmlminConfig = {
 	removeComments: true,
@@ -45,14 +45,15 @@ gulp.task('style', function(){
 	.pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
 	.pipe(sourcemaps.init())
 	.pipe(less())
-	.pipe(sourcemaps.write())
 	.pipe(autoprefixer(autoprefixerConfig))
 	.pipe(gulp.dest('src/css'))
+	.pipe(gulp.dest('dist/css'))
+	.pipe(concat(combineCSSName))
+	.pipe(gulp.dest('src/css'))
+	.pipe(gulp.dest('dist/css'))
 	.pipe(rename({ suffix: '.min'}))
 	.pipe(minifycss())
-	.pipe(gulp.dest('src/css'))
-	.pipe(concat(combineCSSName))
-	.pipe(minifycss())
+	.pipe(sourcemaps.write('./'))
 	.pipe(gulp.dest('src/css'))
 	.pipe(gulp.dest('dist/css'));
 });
@@ -60,12 +61,15 @@ gulp.task('style', function(){
 gulp.task('js', function(){
 	return gulp.src(['src/js/*.js', '!src/js/' + combineJSName, '!src/js/*.min.js'])
 	.pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
+	.pipe(sourcemaps.init())
 	.pipe(jshint())
 	.pipe(jshint.reporter('default'))
 	.pipe(concat(combineJSName))
 	.pipe(gulp.dest('src/js'))
+	.pipe(gulp.dest('dist/js'))
 	.pipe(rename({ suffix: '.min'}))
 	.pipe(uglify())
+	.pipe(sourcemaps.write('./'))
 	.pipe(gulp.dest('src/js'))
 	.pipe(gulp.dest('dist/js'));
 });
